@@ -1,0 +1,16 @@
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th, .order-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  .order-table th:nth-child(n+5), .order-table td:nth-child(n+5) {
+    display: none;
+  }
+}
