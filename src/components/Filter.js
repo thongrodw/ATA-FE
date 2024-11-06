@@ -20,7 +20,8 @@ const Filter = ({ onFilterChange }) => {
             <label>From:</label>
             <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
             <label>To:</label>
-            <input type="date" value={startDate} onChange={(e) => setEndDate(e.target.value)} />
+            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+            <button onClick={handleFilterChange}>Search</button>
         </div>
     );
 };
