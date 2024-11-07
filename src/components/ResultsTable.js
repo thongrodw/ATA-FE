@@ -22,13 +22,17 @@ const ResultsTable = ({ data }) => {
             <TableCell align="center">Account</TableCell>
             <TableCell align="center">Operation</TableCell>
             <TableCell align="center">Symbol</TableCell>
-            <TableCell align="center">Status</TableCell>
             {!isMobile && (
               <>
                 <TableCell align="center">Description</TableCell>
                 <TableCell align="center">Qty.</TableCell>
                 <TableCell align="center">Filled Qty.</TableCell>
                 <TableCell align="center">Price</TableCell>
+              </>
+            )}
+            <TableCell align="center">Status</TableCell>
+            {!isMobile && (
+              <>
                 <TableCell align="center">Date</TableCell>
                 <TableCell align="center">Expiration</TableCell>
                 <TableCell align="center">No. Ref.</TableCell>
@@ -46,8 +50,8 @@ const ResultsTable = ({ data }) => {
                 <TableCell align="center">{row.operation}</TableCell>
                 <TableCell align="center">{row.symbol}</TableCell>
                 <TableCell align="center">{row.description}</TableCell>
-                <TableCell align="center">{row.qty}</TableCell>
-                <TableCell align="center">{row.filledQty}</TableCell>
+                <TableCell align="center">{row.quantity}</TableCell>
+                <TableCell align="center">{row.filled}</TableCell>
                 <TableCell align="center">{row.price}</TableCell>
                 <TableCell align="center">
                   <Chip label={row.status} color="info" />
@@ -64,7 +68,7 @@ const ResultsTable = ({ data }) => {
               </TableRow>
               {expandedRow === row.id && (
                 <TableRow>
-                  <TableCell colSpan={13} align="center">
+                  <TableCell colSpan={isMobile ? 5 : 13}>
                     <Collapse in={expandedRow === row.id} timeout="auto" unmountOnExit>
                       <RowDetails details={row.details} />
                     </Collapse>
