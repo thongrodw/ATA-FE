@@ -49,17 +49,25 @@ const ResultsTable = ({ data }) => {
                 <TableCell align="center">{row.id}</TableCell>
                 <TableCell align="center">{row.operation}</TableCell>
                 <TableCell align="center">{row.symbol}</TableCell>
-                <TableCell align="center">{row.description}</TableCell>
-                <TableCell align="center">{row.quantity}</TableCell>
-                <TableCell align="center">{row.filled}</TableCell>
-                <TableCell align="center">{row.price}</TableCell>
+                {!isMobile && (
+                  <>
+                    <TableCell align="center">{row.description}</TableCell>
+                    <TableCell align="center">{row.quantity}</TableCell>
+                    <TableCell align="center">{row.filled}</TableCell>
+                    <TableCell align="center">{row.price}</TableCell>
+                  </>
+                )}
                 <TableCell align="center">
                   <Chip label={row.status} color="info" />
                 </TableCell>
-                <TableCell align="center">{row.date}</TableCell>
-                <TableCell align="center">{row.expiration}</TableCell>
-                <TableCell align="center">{row.refNo}</TableCell>
-                <TableCell align="center">{row.extRef}</TableCell>
+                {!isMobile && (
+                  <>
+                    <TableCell align="center">{row.date}</TableCell>
+                    <TableCell align="center">{row.expiration}</TableCell>
+                    <TableCell align="center">{row.refNo}</TableCell>
+                    <TableCell align="center">{row.extRef}</TableCell>
+                  </>
+                )}
                 <TableCell align="center">
                   <IconButton onClick={() => handleExpandClick(row.id)}>
                     {expandedRow === row.id ? <ExpandLessIcon /> : <ExpandMoreIcon />}

@@ -1,13 +1,20 @@
 import React from 'react';
-import { Box, Typography, Button, Grid, Paper } from '@mui/material';
+import { Box, Typography, Button, Grid, Paper, Chip } from '@mui/material';
+import OpenNewTab from './OpenNewTab';
 
 const RowDetails = ({ details }) => (
   <Paper variant="outlined" sx={{ padding: 2, backgroundColor: '#f9f9f9', marginY: 1 }}>
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h6">
-          {details.name} ({details.accountNumber} - {details.accountType})
+      <Grid item xs={9} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Typography variant="h6" color="primary" sx={{ marginRight: 1 }}>
+          {details.firstName} {details.lastName} ({details.accountNumber} - {details.accountType})
         </Typography>
+        <Chip label={<><span>Full review details</span><OpenNewTab /></>} sx={{ backgroundColor: '#ffffff', border: '1px solid #808080', color: '#1976D2' }}/>
+      </Grid>
+
+      <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Chip label="Accept" color="primary" sx={{ marginRight: 0.5}} />
+        <Chip label="Reject" sx={{ backgroundColor: '#ffffff', border: '1px solid red', color: 'red' }}/>
       </Grid>
 
       <Grid item xs={3}>
@@ -51,7 +58,7 @@ const RowDetails = ({ details }) => (
       </Grid>
 
       <Grid item xs={12}>
-        <Typography variant="body2" color="textSecondary" fontWeight="bold" sx={{ marginTop: 2 }}>
+        <Typography variant="body2" color="textSecondary" fontWeight="bold" >
           Warning(s)
         </Typography>
         <Box sx={{ paddingLeft: 2 }}>
@@ -63,10 +70,6 @@ const RowDetails = ({ details }) => (
         </Box>
       </Grid>
 
-      <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 2 }}>
-        <Button variant="contained" color="primary" sx={{ marginRight: 1 }}>Accept</Button>
-        <Button variant="outlined" color="error">Reject</Button>
-      </Grid>
     </Grid>
   </Paper>
 );
