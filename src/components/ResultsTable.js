@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Chip, Collapse, useMediaQuery } from '@mui/material';
+import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import { useTheme } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -58,7 +59,8 @@ const ResultsTable = ({ data }) => {
                   </>
                 )}
                 <TableCell align="center">
-                  <Chip label={row.status} color="info" />
+                  <PendingActionsIcon sx={{ marginRight: '2px', color: '#1976D2', verticalAlign: 'middle' }} />
+                  {row.status}
                 </TableCell>
                 {!isMobile && (
                   <>
