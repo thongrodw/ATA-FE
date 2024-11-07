@@ -1,16 +1,24 @@
-.order-table {
-  width: 100%;
-  border-collapse: collapse;
-}
 
-.order-table th, .order-table td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.center-align {
+  text-align: center;
 }
 
 @media (max-width: 600px) {
-  .order-table th:nth-child(n+5), .order-table td:nth-child(n+5) {
+
+  .table-cell-3,
+  .table-cell-5,
+  .table-cell-6,
+  .table-cell-7,
+  .table-cell-9,
+  .table-cell-10,
+  .table-cell-11,
+  .table-cell-12,
+  .table-cell-13 {
     display: none;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
   }
 }

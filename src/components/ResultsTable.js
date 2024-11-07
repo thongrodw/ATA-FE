@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  IconButton,
-  Chip,
-  Collapse,
-} from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Chip, Collapse, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import RowDetails from './RowDetails';
 
 const ResultsTable = ({ data }) => {
   const [expandedRow, setExpandedRow] = useState(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleExpandClick = (rowId) => {
     setExpandedRow(expandedRow === rowId ? null : rowId);
@@ -27,40 +19,44 @@ const ResultsTable = ({ data }) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Account</TableCell>
-            <TableCell>Operation</TableCell>
-            <TableCell>Symbol</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Qty.</TableCell>
-            <TableCell>Filled Qty.</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Expiration</TableCell>
-            <TableCell>No. Ref.</TableCell>
-            <TableCell>Ext. Ref.</TableCell>
-            <TableCell>Actions</TableCell>
+            <TableCell align="center">Account</TableCell>
+            <TableCell align="center">Operation</TableCell>
+            <TableCell align="center">Symbol</TableCell>
+            <TableCell align="center">Status</TableCell>
+            {!isMobile && (
+              <>
+                <TableCell align="center">Description</TableCell>
+                <TableCell align="center">Qty.</TableCell>
+                <TableCell align="center">Filled Qty.</TableCell>
+                <TableCell align="center">Price</TableCell>
+                <TableCell align="center">Date</TableCell>
+                <TableCell align="center">Expiration</TableCell>
+                <TableCell align="center">No. Ref.</TableCell>
+                <TableCell align="center">Ext. Ref.</TableCell>
+                <TableCell align="center">Actions</TableCell>
+              </>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row) => (
             <React.Fragment key={row.id}>
               <TableRow>
-                <TableCell>{row.id}</TableCell>
-                <TableCell>{row.operation}</TableCell>
-                <TableCell>{row.symbol}</TableCell>
-                <TableCell>{row.description}</TableCell>
-                <TableCell>{row.qty}</TableCell>
-                <TableCell>{row.filledQty}</TableCell>
-                <TableCell>{row.price}</TableCell>
-                <TableCell>
+                <TableCell align="center">{row.id}</TableCell>
+                <TableCell align="center">{row.operation}</TableCell>
+                <TableCell align="center">{row.symbol}</TableCell>
+                <TableCell align="center">{row.description}</TableCell>
+                <TableCell align="center">{row.qty}</TableCell>
+                <TableCell align="center">{row.filledQty}</TableCell>
+                <TableCell align="center">{row.price}</TableCell>
+                <TableCell align="center">
                   <Chip label={row.status} color="info" />
                 </TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.expiration}</TableCell>
-                <TableCell>{row.refNo}</TableCell>
-                <TableCell>{row.extRef}</TableCell>
-                <TableCell>
+                <TableCell align="center">{row.date}</TableCell>
+                <TableCell align="center">{row.expiration}</TableCell>
+                <TableCell align="center">{row.refNo}</TableCell>
+                <TableCell align="center">{row.extRef}</TableCell>
+                <TableCell align="center">
                   <IconButton onClick={() => handleExpandClick(row.id)}>
                     {expandedRow === row.id ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </IconButton>
@@ -68,7 +64,7 @@ const ResultsTable = ({ data }) => {
               </TableRow>
               {expandedRow === row.id && (
                 <TableRow>
-                  <TableCell colSpan={13}>
+                  <TableCell colSpan={13} align="center">
                     <Collapse in={expandedRow === row.id} timeout="auto" unmountOnExit>
                       <RowDetails details={row.details} />
                     </Collapse>

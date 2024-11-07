@@ -6,9 +6,9 @@ import mockData from '../data/mockData';
 
 
 const Main = () => (
-  <Container maxWidth="lg">
-    <ResultsTable data={mockData} />
-  </Container>
+    <Container maxWidth="xl">
+        <ResultsTable data={mockData} />
+    </Container>
 );
 
 export default Main;
