@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Collapse, useMediaQuery } from '@mui/material';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  IconButton,
+  Collapse,
+  useMediaQuery,
+} from '@mui/material';
 import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import { useTheme } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import RowDetails from './RowDetails';
 
 const ResultsTable = ({ data }) => {
@@ -20,6 +32,7 @@ const ResultsTable = ({ data }) => {
       <Table>
         <TableHead>
           <TableRow>
+            <TableCell align="center"></TableCell>
             <TableCell align="center">Account</TableCell>
             <TableCell align="center">Operation</TableCell>
             <TableCell align="center">Symbol</TableCell>
@@ -38,15 +51,24 @@ const ResultsTable = ({ data }) => {
                 <TableCell align="center">Expiration</TableCell>
                 <TableCell align="center">No. Ref.</TableCell>
                 <TableCell align="center">Ext. Ref.</TableCell>
-                <TableCell align="center">Actions</TableCell>
               </>
             )}
+            <TableCell align="center"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row) => (
             <React.Fragment key={row.id}>
               <TableRow>
+                <TableCell align="center">
+                  <IconButton onClick={() => handleExpandClick(row.id)}>
+                    {expandedRow === row.id ? (
+                      <ExpandLessIcon style={{ transform: 'rotate(180deg)' }} />
+                    ) : (
+                      <ExpandMoreIcon style={{ transform: 'rotate(270deg)' }} />
+                    )}
+                  </IconButton>
+                </TableCell>
                 <TableCell align="center">{row.id}</TableCell>
                 <TableCell align="center">{row.operation}</TableCell>
                 <TableCell align="center">{row.symbol}</TableCell>
@@ -71,8 +93,19 @@ const ResultsTable = ({ data }) => {
                   </>
                 )}
                 <TableCell align="center">
-                  <IconButton onClick={() => handleExpandClick(row.id)}>
-                    {expandedRow === row.id ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                  <IconButton
+                    sx={{
+                      backgroundColor: 'rgba(173, 216, 230, 0.3)',
+                      transform: 'rotate(90deg)',
+                      width: '25px',
+                      height: '25px',
+                      padding: '4px',
+                      '&:hover': {
+                        backgroundColor: 'rgba(173, 216, 230, 0.5)', 
+                      },
+                    }}
+                  >
+                    <MoreVertIcon fontSize="small"/>
                   </IconButton>
                 </TableCell>
               </TableRow>
