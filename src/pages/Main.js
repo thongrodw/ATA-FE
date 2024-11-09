@@ -9,14 +9,23 @@ const Main = () => {
     const [filteredData, setFilteredData] = useState(mockData);
 
     const handleFilterChange = (filter) => {
-        const {startDate, endDate, status, period} = filter;
-        
+        const {startDate, endDate, status} = filter;
+
+        let inputStartDate = new Date(startDate);
+        let inputEndDate = new Date(endDate);
+
+        console.log("inputStartDate: ", inputStartDate);
+        console.log("inputEndDate: ", inputEndDate);
+
         const filtered = mockData.filter((item) => {
-            const itemDate = new Date(item.date);
+            const itemStartDate = new Date(item.date);
+            itemStartDate.setHours(0, 0, 0, 0);
+            const itemEndDate = new Date(item.expiration);
+            itemEndDate.setHours(23, 59, 59, 999);
             return (
                 item.status === status &&
-                itemDate >= startDate.toDate() &&
-                itemDate <= endDate.toDate()
+                itemStartDate >= inputStartDate &&
+                itemEndDate <= inputEndDate
             );
         });
 

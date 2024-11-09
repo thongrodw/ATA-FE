@@ -15,7 +15,9 @@ const Filter = ({ onFilterChange, totalResults }) => {
     const isMedium = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleFilterChange = () => {
-        onFilterChange({ startDate, endDate, status, period });
+        const adjustedStartDate = startDate.startOf('day');
+        const adjustedEndDate = endDate.endOf('day');
+        onFilterChange({ startDate: adjustedStartDate, endDate: adjustedEndDate, status, period });
     };
 
     return (
