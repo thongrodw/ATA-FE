@@ -24,7 +24,7 @@ const Filter = ({ onFilterChange, totalResults }) => {
         <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, maxWidth: 'xl', margin: '0 auto' }}>
             <Grid container spacing={2} alignItems="center"></Grid>
             <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} sm={4} md={2}>
+                <Grid item xs={12} sm={4} md={2} marginTop={1}>
                     <Typography variant="h6" gutterBottom>
                         Search
                     </Typography>
@@ -34,7 +34,7 @@ const Filter = ({ onFilterChange, totalResults }) => {
                 </Grid>
                 <Grid item xs={12} sm={8} md={10}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <Grid container spacing={2} alignItems="center" justifyContent="flex-end">
+                        <Grid container spacing={2} alignItems="center" justifyContent="flex-end" marginTop={isMobile ? 2 : 0}>
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 {!isMedium && !isMobile && (
                                     <Grid item>
