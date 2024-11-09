@@ -25,7 +25,7 @@ const Filter = ({ onFilterChange, totalResults }) => {
             <Grid container spacing={2} alignItems="center"></Grid>
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs={12} sm={4} md={2} marginTop={1}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom color='#0D47A1'>
                         Search
                     </Typography>
                     <Typography variant="body2" color="textSecondary">

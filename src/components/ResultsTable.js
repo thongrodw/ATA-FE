@@ -33,24 +33,24 @@ const ResultsTable = ({ data }) => {
         <TableHead>
           <TableRow>
             <TableCell align="center"></TableCell>
-            <TableCell align="center">Account</TableCell>
-            <TableCell align="center">Operation</TableCell>
-            <TableCell align="center">Symbol</TableCell>
+            <TableCell align="center" sx={{ color: '#08336F' }}>Account</TableCell>
+            <TableCell align="center" sx={{ color: '#08336F' }}>Operation</TableCell>
+            <TableCell align="center" sx={{ color: '#08336F' }}>Symbol</TableCell>
             {!isMobile && (
               <>
-                <TableCell align="center">Description</TableCell>
-                <TableCell align="center">Qty.</TableCell>
-                <TableCell align="center">Filled Qty.</TableCell>
-                <TableCell align="center">Price</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Description</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Qty.</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Filled Qty.</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Price</TableCell>
               </>
             )}
-            <TableCell align="center">Status</TableCell>
+            <TableCell align="center" sx={{ color: '#08336F' }}>Status</TableCell>
             {!isMobile && (
               <>
-                <TableCell align="center">Date</TableCell>
-                <TableCell align="center">Expiration</TableCell>
-                <TableCell align="center">No. Ref.</TableCell>
-                <TableCell align="center">Ext. Ref.</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Date</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Expiration</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>No. Ref.</TableCell>
+                <TableCell align="center" sx={{ color: '#08336F' }}>Ext. Ref.</TableCell>
               </>
             )}
             <TableCell align="center"></TableCell>
@@ -69,7 +69,7 @@ const ResultsTable = ({ data }) => {
                     )}
                   </IconButton>
                 </TableCell>
-                <TableCell align="center">{row.id}</TableCell>
+                <TableCell align="center" style={{ color: '#1976D2', fontWeight: 'bold'}}>{row.id}</TableCell>
                 <TableCell align="center">{row.operation}</TableCell>
                 <TableCell align="center">{row.symbol}</TableCell>
                 {!isMobile && (
