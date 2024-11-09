@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { TextField, MenuItem, Button, Paper, Typography } from '@mui/material';
+import { TextField, MenuItem, Paper, Typography, Chip } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 
-const Filter = ({ onFilterChange }) => {
+const Filter = ({ onFilterChange, totalResults }) => {
     const [startDate, setStartDate] = useState(dayjs());
     const [endDate, setEndDate] = useState(dayjs());
     const [status, setStatus] = useState('Waiting');
     const [period, setPeriod] = useState('Waiting');
 
     const handleFilterChange = () => {
-        onFilterChange({ startDate, endDate, status });
+        onFilterChange({ startDate, endDate, status, period });
     };
 
     return (
@@ -22,13 +22,16 @@ const Filter = ({ onFilterChange }) => {
                     <Typography variant="h6" gutterBottom>
                         Search
                     </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Search results: <strong>{totalResults}</strong>
+                    </Typography>
                 </Grid>
                 <Grid item xs={10}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <Grid container spacing={2} alignItems="center" display="flex" justifyContent="flex-end" sx={{ marginLeft: 'auto' }}>
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 <Grid item>
-                                    <Typography variant="body1">Period</Typography>
+                                    <Typography variant="body2">Period</Typography>
                                 </Grid>
                                 <Grid item xs>
                                     <TextField
@@ -45,7 +48,7 @@ const Filter = ({ onFilterChange }) => {
                             </Grid>
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 <Grid item>
-                                    <Typography variant="body1">Status</Typography>
+                                    <Typography variant="body2">Status</Typography>
                                 </Grid>
                                 <Grid item xs>
                                     <TextField
@@ -62,7 +65,7 @@ const Filter = ({ onFilterChange }) => {
                             </Grid>
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 <Grid item>
-                                    <Typography variant="body1">From</Typography>
+                                    <Typography variant="body2">From</Typography>
                                 </Grid>
                                 <Grid item xs>
                                     <DatePicker
@@ -74,7 +77,7 @@ const Filter = ({ onFilterChange }) => {
                             </Grid>
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 <Grid item>
-                                    <Typography variant="body1">To</Typography>
+                                    <Typography variant="body2">To</Typography>
                                 </Grid>
                                 <Grid item xs>
                                     <DatePicker
@@ -85,9 +88,7 @@ const Filter = ({ onFilterChange }) => {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12} md={1} sx={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 1 }}>
-                                <Button variant="contained" color="primary" onClick={handleFilterChange}>
-                                    Search
-                                </Button>
+                                <Chip label="Search" color="primary" sx={{ marginRight: 1 }} onClick={handleFilterChange}/>
                             </Grid>
                         </Grid>
                     </LocalizationProvider>
