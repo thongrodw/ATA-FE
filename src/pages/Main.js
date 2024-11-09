@@ -35,7 +35,7 @@ const Main = () => {
     return (
         <Container maxWidth="xl">
             <Filter onFilterChange={handleFilterChange} totalResults={filteredData.length} />
-            <ResultsTable data={mockData} />
+            <ResultsTable data={filteredData} />
         </Container>
     );
 };
