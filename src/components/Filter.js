@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextField, MenuItem, Paper, Typography, Chip } from '@mui/material';
+import { TextField, MenuItem, Paper, Typography, Chip, useMediaQuery, useTheme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
@@ -10,6 +10,9 @@ const Filter = ({ onFilterChange, totalResults }) => {
     const [endDate, setEndDate] = useState(dayjs());
     const [status, setStatus] = useState('Waiting');
     const [period, setPeriod] = useState('Waiting');
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
 
     const handleFilterChange = () => {
         onFilterChange({ startDate, endDate, status, period });
