@@ -16,9 +16,9 @@ const Filter = ({ onFilterChange, totalResults }) => {
     };
 
     return (
-        <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, height: 'auto', maxWidth: 'xl', margin: '0 auto' }}>
+        <Paper elevation={3} sx={{ padding: 2, marginBottom: 2, maxWidth: 'xl', margin: '0 auto' }}>
             <Grid container spacing={2} alignItems="center">
-                <Grid item xs={2}>
+                <Grid item xs={12} sm={4} md={2}>
                     <Typography variant="h6" gutterBottom>
                         Search
                     </Typography>
@@ -26,9 +26,9 @@ const Filter = ({ onFilterChange, totalResults }) => {
                         Search results: <strong>{totalResults}</strong>
                     </Typography>
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={12} sm={8} md={10}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <Grid container spacing={2} alignItems="center" display="flex" justifyContent="flex-end" sx={{ marginLeft: 'auto' }}>
+                        <Grid container spacing={2} alignItems="center" justifyContent="flex-end">
                             <Grid item xs={12} md={2} container alignItems="center" spacing={1}>
                                 <Grid item>
                                     <Typography variant="body2">Period</Typography>
@@ -71,7 +71,7 @@ const Filter = ({ onFilterChange, totalResults }) => {
                                     <DatePicker
                                         value={startDate}
                                         onChange={(date) => setStartDate(date)}
-                                        slotProps={{ textField: { size: 'small' } }}
+                                        slotProps={{ textField: { size: 'small', fullWidth: true } }}
                                     />
                                 </Grid>
                             </Grid>
@@ -83,12 +83,12 @@ const Filter = ({ onFilterChange, totalResults }) => {
                                     <DatePicker
                                         value={endDate}
                                         onChange={(date) => setEndDate(date)}
-                                        slotProps={{ textField: { size: 'small' } }}
+                                        slotProps={{ textField: { size: 'small', fullWidth: true } }}
                                     />
                                 </Grid>
                             </Grid>
                             <Grid item xs={12} md={1} sx={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 1 }}>
-                                <Chip label="Search" color="primary" sx={{ marginRight: 1 }} onClick={handleFilterChange}/>
+                                <Chip label="Search" color="primary" onClick={handleFilterChange} />
                             </Grid>
                         </Grid>
                     </LocalizationProvider>
