@@ -24,13 +24,7 @@ const mockData = [
       dateTime: '2023/01/04 03:05:43',
       telephone: '123-456-7890',
       osLimit: '1,000.00 USD',
-      userId: 'user',
-      warnings: [
-        'To trade this security in this account, a currency conversion will be made at the current rate.',
-        'A similar order has already been submitted.',
-        'Your transaction will be processed the following business day.',
-        'It is not possible to calculate the buying power of this order.',
-      ],
+      userId: 'user'
     }
   },
   {
@@ -58,13 +52,7 @@ const mockData = [
       dateTime: '2023/01/04 03:05:43',
       telephone: '123-456-7890',
       osLimit: '1,000.00 USD',
-      userId: 'user',
-      warnings: [
-        'To trade this security in this account, a currency conversion will be made at the current rate.',
-        'A similar order has already been submitted.',
-        'Your transaction will be processed the following business day.',
-        'It is not possible to calculate the buying power of this order.',
-      ],
+      userId: 'user'
     },
   },
   {
@@ -92,13 +80,7 @@ const mockData = [
       dateTime: '2023/03/04 03:05:43',
       telephone: '123-456-7890',
       osLimit: '1,000.00 USD',
-      userId: 'user',
-      warnings: [
-        'To trade this security in this account, a currency conversion will be made at the current rate.',
-        'A similar order has already been submitted.',
-        'Your transaction will be processed the following business day.',
-        'It is not possible to calculate the buying power of this order.',
-      ],
+      userId: 'user'
     },
   },
 ];

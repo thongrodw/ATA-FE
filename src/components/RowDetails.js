@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper, Chip, useMediaQuery, useTheme } from '@mui/material';
 import OpenNewTab from './OpenNewTab';
+import warningMessages from '../data/warningMessage';
 
 const RowDetails = ({ details }) => {
   const theme = useTheme();
@@ -66,7 +67,7 @@ const RowDetails = ({ details }) => {
             Warning(s)
           </Typography>
           <Box sx={{ paddingLeft: 2 }}>
-            {details.warnings.map((warning, index) => (
+            {warningMessages.map((warning, index) => (
               <Typography key={index} variant="body2" color="textSecondary">
                 - {warning}
               </Typography>
